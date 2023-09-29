@@ -41,10 +41,7 @@ def findNextAvailableSpace(column):
 
 def colourChange():
   global currentColour
-  if currentColour == "Blue":
-    currentColour = "Red"
-  elif currentColour == "Red":
-    currentColour = "Blue"
+  currentColour = "Blue" if currentColour == "Red" else "Red"
 
 
 def create_window(winner):
@@ -79,6 +76,7 @@ def checkForWinner():
           gameRunning = False
           makeNewButtons("Disabled")
           create_window(tempColoursArray[x][j])
+
   for x in range(1, len(tempColoursArray)):
     for j in range(0, len(tempColoursArray[x])):
       if (x) < len(tempColoursArray) - 3:
@@ -90,6 +88,7 @@ def checkForWinner():
           gameRunning = False
           makeNewButtons("Disabled")
           create_window(tempColoursArray[x][j])
+
   for x in range(1, len(tempColoursArray)):
     for j in range(0, len(tempColoursArray[x])):
       if ((x) < len(tempColoursArray) - 3) and (
@@ -102,6 +101,7 @@ def checkForWinner():
           gameRunning = False
           makeNewButtons("Disabled")
           create_window(tempColoursArray[x][j])
+
   for x in range(1, len(tempColoursArray)):
     for j in range(0, len(tempColoursArray[x])):
       if ((x) < len(tempColoursArray) - 3) and (
