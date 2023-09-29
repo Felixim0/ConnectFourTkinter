@@ -4,23 +4,32 @@ from tkinter import *
 global totalRedCoOrds, totalBlueCoOrds, tempArray2, gameRunning, animation
 
 root = Tk()
-currentColour = "Red"
-nextAvailableSpaceNumber = 7
+# Setup background assets
 blankButtonImage = PhotoImage(file="./environment/blankButton.gif")
 backgroundImage = PhotoImage(file="./environment/background.gif")
 backgroundLabel = Label(root, image=backgroundImage)
 backgroundLabel.grid(row=1, column=0, columnspan=12, rowspan=12)
 
+# Setup Red and Blue button coordinate lists
 totalRedCoOrds = []
 totalBlueCoOrds = []
-tempArray2 = []
+
+# Load Red and Blue button assets
 redButtonImage = PhotoImage(file="./environment/redButton.gif")
 blueButtonImage = PhotoImage(file="./environment/blueButton.gif")
+
+# Setup global game variables
 gameRunning = True
 animation = False
+currentColour = "Red"
+nextAvailableSpaceNumber = 7
+
+# Setup the array which will hold the board
 boardArray = ["placeHolder"]
 coloursArray = ["placeHolder"]
+
 tempArray = []
+tempArray2 = []
 
 for i in range(1, 13):
   tempArray = []
@@ -38,11 +47,9 @@ def findNextAvailableSpace(column):
       nextAvailableSpaceNumber = int(i - 1)
       break
 
-
 def colourChange():
   global currentColour
   currentColour = "Blue" if currentColour == "Red" else "Red"
-
 
 def create_window(winner):
   top = Toplevel()
